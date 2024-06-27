@@ -6,25 +6,17 @@ from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 import csv
 
+#default fields that goodreads uses. 
+goodread_fields = ['Title', 'Author', 'ISBN', 'My Rating', 'Publisher', 'Binding', 'Year Published', 'Original Publication Year', 'Date Read', 'Date Added', 'Shelves', 'Bookshelves', 'My Review']
+
 Tk().withdraw()
 filename = askopenfilename(filetypes=[("CSV files", ".csv")])
 
-Title = []
-Authors = []
-Contributors = []
-ISBN = []
-Read_Status = []
-Last_Date_Read = []
-Read_Count = []
-Moods = []
-Pace = []
-Characters = []
-##need to remove some of these as they don't match up with goodreads. 
-
-##Need a way to get goodreads book IDs into here. 
+story_graph_list = []
 
 with open(filename, newline='') as csvfile:
-    bookreader = csv.reader(csvfile, delimiter=',')
+    bookreader = csv.reader(csvfile, delimiter=',', skiprows=[0])
     linecount = 0
     for row in bookreader:
-        print(', '.join(row))
+        story_graph_list.append(row)
+

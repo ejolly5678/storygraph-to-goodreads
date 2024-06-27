@@ -14,8 +14,8 @@ filename = askopenfilename(filetypes=[("CSV files", ".csv")])
 
 story_graph_list = []
 
-with open(filename, newline='') as csvfile:
-    bookreader = csv.reader(csvfile, delimiter=',', skiprows=[0])
+with open(filename, encoding="utf8", newline='') as csvfile:
+    bookreader = csv.reader(csvfile, delimiter=',')
     linecount = 0
     for row in bookreader:
         story_graph_list.append(row)

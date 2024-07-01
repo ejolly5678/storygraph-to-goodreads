@@ -1,2 +1,1 @@
-storygraph-to-goodreads/
-    main.py
+from helpers import rename
